@@ -26,6 +26,21 @@
     canvas {
       border-radius: 5px; /* Menambahkan border radius pada canvas grafik */
     }
+
+    .chart-options {
+      margin: 20px 0;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    select {
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
@@ -33,6 +48,17 @@
   <!-- Kotak pembungkus untuk konten -->
   <div class="container">
     <h1>Grafik Penduduk Indonesia Tahun 2024</h1>
+    
+    <!-- Dropdown untuk memilih jenis grafik -->
+    <div class="chart-options">
+      <label for="chartType">Pilih Jenis Grafik: </label>
+      <select id="chartType">
+        <option value="line">Line Chart</option>
+        <option value="bar">Bar Chart</option>
+        <option value="radar">Radar Chart</option>
+        <option value="polarArea">Polar Area Chart</option>
+      </select>
+    </div>
     
     <!-- Canvas untuk grafik -->
     <canvas id="populationChart" width="400" height="200"></canvas>
@@ -51,9 +77,12 @@
       }]
     };
 
-    /* Konfigurasi chart  */
+    /* Default chart type */
+    let chartType = 'line'; // Default chart is Line Chart
+
+    /* Konfigurasi chart */
     const config = {
-      type: 'radar', 
+      type: chartType,
       data: populationData,
       options: {
         scales: {
@@ -64,9 +93,22 @@
       }
     };
 
-    /* Membuat chart */
+    /* Membuat chart pertama kali */
     const ctx = document.getElementById('populationChart').getContext('2d');
-    new Chart(ctx, config);
+    let myChart = new Chart(ctx, config);
+
+    /* Fungsi untuk memperbarui grafik berdasarkan pilihan */
+    const updateChartType = (newChartType) => {
+      myChart.destroy();  // Hapus chart yang ada sebelumnya
+      config.type = newChartType; // Ubah tipe grafik
+      myChart = new Chart(ctx, config); // Buat grafik baru dengan tipe yang baru
+    };
+
+    /* Event listener untuk menangani perubahan jenis grafik */
+    const chartTypeSelect = document.getElementById('chartType');
+    chartTypeSelect.addEventListener('change', (event) => {
+      updateChartType(event.target.value);
+    });
   </script>
 
 </body>

@@ -28,3 +28,6 @@ Aplikasi ini menampilkan grafik estimasi jumlah penduduk Indonesia pada tahun 20
 - Node.js - Backend server
 - Express.js - Framework untuk server HTTP
 - Chart.js - Library untuk membuat grafik
+
+## Contoh Tampilan
+   ![Contoh Gambar](https://github.com/tarmizi-ahmad/TAP/image.png)
