@@ -1,0 +1,10 @@
+Jika dalam 1 projek terdapat 3 branch pada repository
+Development : terdapat penambahan fitur A
+QA : sedang testing fitur B
+Production : ditemukan issue yang harus diperbaiki saat itu juga
+
+Jawab
+1. Perbaiki terlebih dahulu issue di production
+2. Kemudian buat branch baru dengan nama hotfix dari production dan lakukan perbaikan di branch hotfix ini
+3. Merge branch hotfix ke branch production
+4. Merge perubahan dari branch production ke branch development dan branch QA

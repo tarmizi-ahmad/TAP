@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafik Penduduk Indonesia 2024</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Styling untuk kotak pembungkus */
+    .container {
+      width: 60%; /* Menentukan lebar kotak pembungkus */
+      margin: 50px auto; /* Memberikan margin otomatis untuk posisi tengah */
+      padding: 20px; /* Memberikan padding di dalam kotak */
+      background-color: #ffffff; /* Latar belakang kotak */
+      border-radius: 5px; /* Radius sudut kotak 5px */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan shadow lembut */
+      text-align: center; /* Menengahkan teks di dalam kotak */
+    }
+
+    h1 {
+      font-family: 'Arial', sans-serif; /* Mengatur font judul */
+      font-size: 24px;
+      color: #333; /* Warna teks */
+    }
+
+    canvas {
+      border-radius: 5px; /* Menambahkan border radius pada canvas grafik */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Kotak pembungkus untuk konten -->
+  <div class="container">
+    <h1>Grafik Penduduk Indonesia Tahun 2024</h1>
+    
+    <!-- Canvas untuk grafik -->
+    <canvas id="populationChart" width="400" height="200"></canvas>
+  </div>
+  
+  <script>
+    /* Data penduduk Indonesia 2024 (Estimasi) */
+    const populationData = {
+      labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+      datasets: [{
+        label: 'Jumlah Penduduk (Estimasi)',
+        data: [276000000, 277000000, 278000000, 279000000, 280000000, 281000000, 282000000, 283000000, 284000000, 285000000, 286000000, 287000000], // Estimasi bulanan
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    /* Konfigurasi chart  */
+    const config = {
+      type: 'radar', 
+      data: populationData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    /* Membuat chart */
+    const ctx = document.getElementById('populationChart').getContext('2d');
+    new Chart(ctx, config);
+  </script>
+
+</body>
+</html>
