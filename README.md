@@ -7,7 +7,7 @@ Aplikasi ini menampilkan grafik estimasi jumlah penduduk Indonesia pada tahun 20
 1. **Clone repository ini:**
 
    ```bash
-   git clone https://github.com/username/population-graph.git
+   git clone https://github.com/tarmizi-ahmad/TAP.git
    cd population-graph
 
 2. **Install dependensi Node.js:**
