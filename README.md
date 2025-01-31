@@ -30,4 +30,4 @@ Aplikasi ini menampilkan grafik estimasi jumlah penduduk Indonesia pada tahun 20
 - Chart.js - Library untuk membuat grafik
 
 ## Contoh Tampilan
-   ![Contoh Gambar](https://github.com/tarmizi-ahmad/TAP/image.png)
+   ![Contoh Gambar](https://github.com/tarmizi-ahmad/TAP/blob/main/image.png)
